@@ -137,7 +137,7 @@ PHP_FUNCTION(get_percentage)
 	double original_number, desired_percentage, end_value;
 	zend_bool rounded_value = 0;
 
-	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "dd|b", &original_number, &desired_percentage, &rounded_value, &arg_len) == FAILURE) {
+	if (zend_parse_parameters(ZEND_NUM_ARGS() TSRMLS_CC, "dd|b", &original_number, &desired_percentage, &rounded_value) == FAILURE) {
 		return;
 	}
 	end_value = (original_number * desired_percentage) / 100;
@@ -146,7 +146,7 @@ PHP_FUNCTION(get_percentage)
 		RETURN_LONG(end_value);
 	}
 
-	RETURN_DOUBLE(endvalue);
+	RETURN_DOUBLE(end_value);
 }
 /* }}} */
 /* The previous line is meant for vim and emacs, so it can correctly fold and 
